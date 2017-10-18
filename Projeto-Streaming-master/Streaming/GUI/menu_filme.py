@@ -32,7 +32,7 @@ def menu_buscar():
     print ("\n Buscar filme \n")
     cod = int(input("Código: "))
     f = filme.buscar_filme(cod)
-    if (cod == None):
+    if (f == None):
         print ("filme não encontrado")
     else:
         imprimir_filme(f)
@@ -41,10 +41,11 @@ def menu_buscar_por_gênero():
     print ("\n Buscar filme \n")
     gen = str(input("Gênero: "))
     f = filme.buscar_filme_por_genero(gen)
-    if (gen == None):
-        print ("filme não encontrado")
+    if (f == None):
+        print ("Gênero não encontrado")
     else:
-        imprimir_filme(f)
+        for i in f:
+            imprimir_filme(i)
 
 def menu_remover():
     print ("\nRemover filme do catálogo\n")
