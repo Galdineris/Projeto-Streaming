@@ -29,9 +29,9 @@ def buscar_filme_por_genero(genero):
         return None
 
 def remover_filme(cod_filme):
-    for i in filmes:
-        if (i[0] == cod_filme):
-            filmes.remove[i]
+    for f in filmes:
+        if (f[0] == cod_filme):
+            filmes.remove(f)
             return True
     return False
 
