@@ -52,7 +52,7 @@ def mostrar_menu():
     menu = ("\n----------------\n"+
              "(1) Adicionar usuário \n" +
              "(2) Listar Usuários \n" +
-             "(3) Buscar usuário por código \n" +
+             "(3) Buscar usuário por CPF \n" +
              "(4) Remover usuário \n" +
              "(0) Voltar\n"+
             "----------------")
@@ -70,5 +70,7 @@ def mostrar_menu():
         elif (op == 4):
             menu_remover()
         elif (op == 0):
-            run_consulta = False
+            run_usuario = False
+if __name__ == "__main__":
+    mostrar_menu()
         

@@ -1,4 +1,5 @@
 from logica import filme
+from logica import historico
 
 def imprimir_filme(filme):
     codigo = filme[0]
@@ -32,19 +33,21 @@ def menu_buscar():
     print ("\n Buscar filme \n")
     cod = int(input("Código: "))
     f = filme.buscar_filme(cod)
-    if (cod == None):
+    if (f == None):
         print ("filme não encontrado")
     else:
         imprimir_filme(f)
+    
         
 def menu_buscar_por_gênero():
     print ("\n Buscar filme \n")
     gen = str(input("Gênero: "))
     f = filme.buscar_filme_por_genero(gen)
-    if (gen == None):
-        print ("filme não encontrado")
+    if (f == None):
+        print ("Gênero não encontrado")
     else:
-        imprimir_filme(f)
+        for i in f:
+            imprimir_filme(i)
 
 def menu_remover():
     print ("\nRemover filme do catálogo\n")
@@ -54,6 +57,16 @@ def menu_remover():
         print ("Filme não encontrado")
     else:
         print ("Filme removido do catálogo")
+
+def menu_listar_historico():
+    print("\n Listar histórico de filmes por usuário \n")
+    cpf = int(input("CPF: "))
+    h = historico.listar_filmes_assistidos(cpf)
+    if (h == None):
+        print("Não há filmes no seu histórico")
+    else:
+        for item in h:
+            imprimir_filme(item)
         
 def mostrar_menu():
     run_filme = True
@@ -63,6 +76,7 @@ def mostrar_menu():
              "(3) Buscar filme por código \n" +
              "(4) Buscar filme por gênero \n" +
              "(5) Remover filme do catálogo\n"
+             "(6) Listar filmes assistidos \n" +
              "(0) Voltar\n"+
             "----------------")
     
@@ -80,9 +94,13 @@ def mostrar_menu():
             menu_buscar_por_gênero()
         elif (op == 5):
             menu_remover()
+        elif (op == 6):
+            menu_listar_historico()
         elif (op == 0):
-            run_consulta = False
-        
+            run_filme = False
+
+if __name__ == "__main__":
+    mostrar_menu()
 
         
         
