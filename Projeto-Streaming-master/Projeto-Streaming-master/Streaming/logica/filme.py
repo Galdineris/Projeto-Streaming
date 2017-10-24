@@ -35,6 +35,10 @@ def remover_filme(cod_filme):
             return True
     return False
 
+def remover_todos_filmes():
+    global filmes
+    filmes = []
+
 def iniciar_filmes():
     adicionar_filme("Scarface", "Ação", 1983)
     adicionar_filme("Rambo", "Ação", 1982)

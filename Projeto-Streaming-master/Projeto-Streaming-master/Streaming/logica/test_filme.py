@@ -38,10 +38,10 @@ class TestFilme(unittest.TestCase):
         filme.adicionar_filme("Filme y", "aventura", 2000)
 
         f = filme.buscar_filme_por_genero("Herói")
-        self.assertEqual("Homem aranha", f[1])
-        self.assertEqual("Herói", f[2])
-        
-        
+        x = len(f)
+        for i in range(0,x):
+            self.assertEqual("Herói", f[i][2])
+           
 
     def test_remover_todos_filmes(self):
          filme.adicionar_filme("Homem aranha", "Herói", 2001)
