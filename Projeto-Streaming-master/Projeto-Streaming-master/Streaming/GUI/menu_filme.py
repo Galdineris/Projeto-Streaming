@@ -1,18 +1,32 @@
 from logica import filme
 from logica import historico
+from logica import nota
 
 def imprimir_filme(filme):
     codigo = filme[0]
     titulo = filme[1]
     genero = filme[2]
     ano = filme[3]
+    avaliacao = nota.buscar_nota(codigo)
     
     
     print("Codigo do filme: ", codigo)
     print("Título: ", titulo)
     print("Gênero: ", genero)
     print("Ano: ", ano)
+    print ("Avaliação: ", avaliacao)
     print()
+
+def menu_avaliar():
+    print ("\n Avaliar filme \n")
+    codigo = int(input("Código do filme: "))
+    avaliacao = int(input("Nota: "))
+    while avaliacao < 0 and avaliacao > 5:
+        avaliacao = int(input("Nota inválida. Digite apenas de 0 a 5"))
+    ava = nota.adicionar_nota(codigo, avaliacao)
+
+    print ("Filme avaliado")
+    
     
     
 def menu_adicionar():
@@ -77,6 +91,7 @@ def mostrar_menu():
              "(4) Buscar filme por gênero \n" +
              "(5) Remover filme do catálogo\n"
              "(6) Listar filmes assistidos \n" +
+             "(7) Avaliar filme \n" +
              "(0) Voltar\n"+
             "----------------")
     
@@ -96,6 +111,8 @@ def mostrar_menu():
             menu_remover()
         elif (op == 6):
             menu_listar_historico()
+        elif (op == 7):
+            menu_avaliar()
         elif (op == 0):
             run_filme = False
 
