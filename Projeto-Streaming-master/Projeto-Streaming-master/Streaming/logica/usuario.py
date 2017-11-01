@@ -24,3 +24,7 @@ def remover_usuario(cpf):
 def iniciar_usuarios():
     adicionar_usuario(30303030, "Luke Skywalker", "luky_force@jedi.com", "leiaandsolo123")
     adicionar_usuario(20202020, "Umaru", "umaru-chan@shinigamitensei.com", "oniichan")
+
+def remover_todos_usuarios():
+    global usuarios
+    usuarios = []

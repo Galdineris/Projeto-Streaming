@@ -5,14 +5,27 @@ historico = []
 
 
 def registrar_filme_assistido(cod_filme, cpf):
-    historico.append[cpf, cod_filme]
+    h1 = [cpf, cod_filme]
+    historico.append(h1)
+
+def listar_historico():
+    print(historico)
+    return historico
 
 def listar_filmes_assistidos(cpf):
     temp = []
 
     for item in historico:
         if cpf == item[0]:
+            print(item[0])
+            print(item[1])
             temp.append(filme.buscar_filme(item[1]))
+    if temp == []:
+        return None
+    else:
+        print(temp)
         return temp
 
-    return None
+def remover_historico():
+    global historico
+    historico = []
