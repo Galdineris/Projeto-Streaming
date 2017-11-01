@@ -20,10 +20,11 @@ def imprimir_filme(filme):
 def menu_avaliar():
     print ("\n Avaliar filme \n")
     codigo = int(input("Código do filme: "))
-    avaliacao = int(input("Nota: "))
-    while avaliacao < 0 and avaliacao > 5:
-        avaliacao = int(input("Nota inválida. Digite apenas de 0 a 5"))
-    ava = nota.adicionar_nota(codigo, avaliacao)
+    x = int(input("Nota: "))
+    print (x)
+    while x<0 or x > 5:
+        x = int(input("Nota inválida. Digite apenas de 0 a 5: "))
+    ava = nota.adicionar_nota(codigo, x)
 
     print ("Filme avaliado")
     
