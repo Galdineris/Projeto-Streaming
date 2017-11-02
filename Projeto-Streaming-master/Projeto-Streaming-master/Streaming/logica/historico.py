@@ -9,7 +9,6 @@ def registrar_filme_assistido(cod_filme, cpf):
     historico.append(h1)
 
 def listar_historico():
-    print(historico)
     return historico
 
 def listar_filmes_assistidos(cpf):
@@ -23,7 +22,6 @@ def listar_filmes_assistidos(cpf):
     if temp == []:
         return None
     else:
-        print(temp)
         return temp
 
 def remover_historico():

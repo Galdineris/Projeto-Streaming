@@ -21,11 +21,14 @@ class TestHistorico(unittest.TestCase):
         historicos = historico.listar_historico()
         self.assertEqual(2, len(historicos))
 
-
     def test_listar_historico(self):
+        historico.registrar_filme_assistido(1,303030)
+        h1 = historico.listar_historico()
+
+        self.assertEqual(1,len(h1))
 
 if __name__ == "__main__":
-    unittest.main(exit = False)
+    unittest.main(exit=False)
 
 
         

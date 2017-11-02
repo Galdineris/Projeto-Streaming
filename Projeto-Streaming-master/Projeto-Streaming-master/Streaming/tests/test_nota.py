@@ -25,4 +25,4 @@ class TestNota(unittest.TestCase):
         nota.adicionar_nota(1, 1)
         nota.adicionar_nota(2, 1)
         n = nota.buscar_nota(1)
-        self.assertEqual(1, n[1])
+        self.assertEqual(1, n)

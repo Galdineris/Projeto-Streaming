@@ -16,19 +16,6 @@ def imprimir_filme(filme):
     print("Ano: ", ano)
     print ("Avaliação: ", avaliacao)
     print()
-
-def menu_avaliar():
-    print ("\n Avaliar filme \n")
-    codigo = int(input("Código do filme: "))
-    x = int(input("Nota: "))
-    print (x)
-    while x<0 or x > 5:
-        x = int(input("Nota inválida. Digite apenas de 0 a 5: "))
-    ava = nota.adicionar_nota(codigo, x)
-
-    print ("Filme avaliado")
-    
-    
     
 def menu_adicionar():
     print("\n Adicionar filme \n")
@@ -82,6 +69,17 @@ def menu_listar_historico():
     else:
         for item in h:
             imprimir_filme(item)
+
+def menu_avaliar():
+    print ("\n Avaliar filme \n")
+    codigo = int(input("Código do filme: "))
+    x = int(input("Nota: "))
+    while x < 0 or x > 5:
+        x = int(input("Nota inválida. Digite apenas de 0 a 5: "))
+    ava = nota.adicionar_nota(codigo, x)
+
+    print ("Filme avaliado")
+
         
 def mostrar_menu():
     run_filme = True

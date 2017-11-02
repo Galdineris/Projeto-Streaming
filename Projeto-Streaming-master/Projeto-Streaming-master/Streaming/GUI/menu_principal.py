@@ -9,7 +9,7 @@ from logica import nota
 def inicializar_dados():
     filme.iniciar_filmes()
     usuario.iniciar_usuarios()
-    nota.iniciar_nota()
+    nota.inicializar_nota()
     
 def mostrar_menu():
     run_menu = True
