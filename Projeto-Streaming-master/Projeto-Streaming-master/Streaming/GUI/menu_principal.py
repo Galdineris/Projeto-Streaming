@@ -4,9 +4,12 @@ from GUI import menu_filme
 from logica import usuario
 from GUI import menu_usuario
 
+from logica import nota
+
 def inicializar_dados():
     filme.iniciar_filmes()
     usuario.iniciar_usuarios()
+    nota.inicializar_nota()
     
 def mostrar_menu():
     run_menu = True

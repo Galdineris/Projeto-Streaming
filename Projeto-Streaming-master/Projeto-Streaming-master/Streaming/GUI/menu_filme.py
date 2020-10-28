@@ -1,18 +1,21 @@
 from logica import filme
+from logica import historico
+from logica import nota
 
 def imprimir_filme(filme):
     codigo = filme[0]
     titulo = filme[1]
     genero = filme[2]
     ano = filme[3]
+    avaliacao = nota.buscar_nota(codigo)
     
     
     print("Codigo do filme: ", codigo)
     print("Título: ", titulo)
     print("Gênero: ", genero)
     print("Ano: ", ano)
+    print ("Avaliação: ", avaliacao)
     print()
-    
     
 def menu_adicionar():
     print("\n Adicionar filme \n")
@@ -32,19 +35,21 @@ def menu_buscar():
     print ("\n Buscar filme \n")
     cod = int(input("Código: "))
     f = filme.buscar_filme(cod)
-    if (cod == None):
+    if (f == None):
         print ("filme não encontrado")
     else:
         imprimir_filme(f)
+    
         
 def menu_buscar_por_gênero():
     print ("\n Buscar filme \n")
     gen = str(input("Gênero: "))
     f = filme.buscar_filme_por_genero(gen)
-    if (gen == None):
-        print ("filme não encontrado")
+    if (f == None):
+        print ("Gênero não encontrado")
     else:
-        imprimir_filme(f)
+        for i in f:
+            imprimir_filme(i)
 
 def menu_remover():
     print ("\nRemover filme do catálogo\n")
@@ -54,6 +59,27 @@ def menu_remover():
         print ("Filme não encontrado")
     else:
         print ("Filme removido do catálogo")
+
+def menu_listar_historico():
+    print("\n Listar histórico de filmes por usuário \n")
+    cpf = int(input("CPF: "))
+    h = historico.listar_filmes_assistidos(cpf)
+    if (h == None):
+        print("Não há filmes no seu histórico")
+    else:
+        for item in h:
+            imprimir_filme(item)
+
+def menu_avaliar():
+    print ("\n Avaliar filme \n")
+    codigo = int(input("Código do filme: "))
+    x = int(input("Nota: "))
+    while x < 0 or x > 5:
+        x = int(input("Nota inválida. Digite apenas de 0 a 5: "))
+    ava = nota.adicionar_nota(codigo, x)
+
+    print ("Filme avaliado")
+
         
 def mostrar_menu():
     run_filme = True
@@ -63,6 +89,8 @@ def mostrar_menu():
              "(3) Buscar filme por código \n" +
              "(4) Buscar filme por gênero \n" +
              "(5) Remover filme do catálogo\n"
+             "(6) Listar filmes assistidos \n" +
+             "(7) Avaliar filme \n" +
              "(0) Voltar\n"+
             "----------------")
     
@@ -80,9 +108,15 @@ def mostrar_menu():
             menu_buscar_por_gênero()
         elif (op == 5):
             menu_remover()
+        elif (op == 6):
+            menu_listar_historico()
+        elif (op == 7):
+            menu_avaliar()
         elif (op == 0):
-            run_consulta = False
-        
+            run_filme = False
+
+if __name__ == "__main__":
+    mostrar_menu()
 
         
         

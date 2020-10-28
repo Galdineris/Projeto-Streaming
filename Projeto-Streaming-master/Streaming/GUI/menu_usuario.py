@@ -70,7 +70,5 @@ def mostrar_menu():
         elif (op == 4):
             menu_remover()
         elif (op == 0):
-            run_usuario = False
-if __name__ == "__main__":
-    mostrar_menu()
+            run_consulta = False
         

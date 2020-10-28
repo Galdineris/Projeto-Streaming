@@ -81,10 +81,8 @@ def mostrar_menu():
         elif (op == 5):
             menu_remover()
         elif (op == 0):
-            run_filme = False
-
-if __name__ == "__main__":
-    mostrar_menu()
+            run_consulta = False
+        
 
         
         
